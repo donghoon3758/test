@@ -1,12 +1,93 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>테스트</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>우리 아기 첫 번째 생일 초대장</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5;
+      background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/56/bear-1294088_960_720.png');
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      background-size: 200px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 40px 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    h1 {
+      color: #e091a1;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #555;
+    }
+
+    .info {
+      margin: 30px 0;
+      font-size: 1.2rem;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #f08080;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #e76e6e;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
-    <h2>박상규</h2>
-    <h3>바보</h3>
+
+  <div class="container">
+    <h1>우리 아기 돌잔치에 초대합니다 🎂</h1>
+    <h2>김하린의 첫 번째 생일</h2>
+
+    <div class="info">
+      💌 일시: 2025년 6월 10일 (토) 오후 2시<br/>
+      📍 장소: 서울 강남구 테헤란로 123<br/>
+      (돌잔치 전문 레스토랑 “더베이비홀”)<br/>
+      <br/>
+      사랑하는 가족, 친구들과 함께<br/>
+      아기의 소중한 첫 생일을 축하하고 싶어요.
+    </div>
+
+    <a href="https://naver.me/xxxxx" class="button" target="_blank">장소 보기</a>
+
+    <div class="footer">
+      문의: 엄마 010-1234-5678 / 아빠 010-2345-6789
+    </div>
+  </div>
+
 </body>
 </html>
