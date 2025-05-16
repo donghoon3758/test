@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL 바인딩 자동 변환기</title>
+    <script>
+        function bindQuery() {
+            let query = document.getElementById("query").value;
+            let params = document.getElementById("params").value
+                .split(",") // , 로 구분하여 배열로 변환
+                .map(param => param.trim());
+            
+            let index = 0;
+            let boundQuery = query.replace(/\?/g, () => {
+                if (index < params.length) {
+                    let param = params[index];
+                    index++;
+                    return param.match(/\(String\)/) ? `'${param.replace(/\(String\)/g, "").trim()}'` : param.replace(/\([^)]*\)/g, "").trim();
+                }
+                return "?"; // 남은 ? 대비
+            });
+            
+            // SQL 코드 정렬 및 들여쓰기 추가
+            boundQuery = boundQuery.replace(/(SELECT|FROM|WHERE|AND|OR|GROUP BY|ORDER BY|LIMIT)/gi, '\n$1');
+            boundQuery = boundQuery.replace(/\n+/g, '\n').trim();
+            
+            document.getElementById("output").innerText = boundQuery;
+        }
+    </script>
+</head>
+<body>
+    <h2>SQL 바인딩 자동 변환기</h2>
+    <label for="query">SQL Query:</label><br>
+    <textarea id="query" rows="4" cols="50" placeholder="여기에 SQL 쿼리를 입력하세요"></textarea><br>
+    
+    <label for="params">Parameters:</label><br>
+    <textarea id="params" rows="4" cols="50" placeholder="파라미터를 ','로 구분하여 입력하세요"></textarea><br>
+    
+    <button onclick="bindQuery()">변환하기</button>
+    
+    <h3>결과:</h3>
+    <pre id="output"></pre>
+</body>
+</html>
